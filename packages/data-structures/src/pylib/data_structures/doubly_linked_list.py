@@ -110,6 +110,33 @@ class DoublyLinkedList(Generic[T]):
 
         return removed.data
 
+    def delete_tail(self):
+        """Remove and return the final value.
+
+        Returns:
+            The data previously stored at the end of the list.
+
+        Raises:
+            IndexError: If the list is empty.
+        """
+
+        if self.is_empty:
+            raise IndexError("delete from empty linked list")
+
+        if self.__head == self.__tail:
+            removed = self.__tail
+            self.__head = None
+            self.__tail = None
+            self.__size -= 1
+
+            return removed.data
+
+        removed = self.__tail
+        self.__tail = removed.prev
+        self.__tail.next = None
+        self.__size -= 1
+        return removed.data
+
         new_node.next = self._head
         self._head.prev = new_node
         self._head = new_node
