@@ -31,6 +31,8 @@ class DoublyLinkedList(Generic[T]):
     def __len__(self) -> int:
         """Return the number of nodes in the list."""
         return self.__size
+
+    @property
     def is_empty(self):
         return self._head is None
 
