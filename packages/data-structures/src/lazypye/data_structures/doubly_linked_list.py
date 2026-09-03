@@ -24,8 +24,8 @@ class DoublyLinkedList(Generic[T]):
     def __init__(self):
         """Create an empty doubly linked list."""
 
-        self.__head = None
-        self.__tail = None
+        self.__head: _Node[T] | None = None
+        self.__tail: _Node[T] | None = None
         self.__size = 0
 
     def __len__(self) -> int:
