@@ -4,13 +4,13 @@ Getting started
 Requirements
 ------------
 
-PyLib requires Python 3.10 or newer. Library packages avoid third-party runtime
+LazyPye requires Python 3.10 or newer. Library packages avoid third-party runtime
 dependencies.
 
 Choose a package
 ----------------
 
-PyLib distributions are independently installable. Use :doc:`packages/index` to
+LazyPye distributions are independently installable. Use :doc:`packages/index` to
 find the domain containing the feature you need, then use that package's
 documented distribution name or repository directory.
 
@@ -21,7 +21,7 @@ Install a distribution directly from this Git repository with:
 
 .. code-block:: console
 
-   py -m pip install "git+https://github.com/MonoChromatical/Pylib.git#subdirectory=packages/PACKAGE_DIRECTORY"
+   py -m pip install "git+https://github.com/MonoChromatical/LazyPye.git#subdirectory=packages/PACKAGE_DIRECTORY"
 
 Replace `PACKAGE_DIRECTORY` with the folder named by the package guide. Do not
 run the blueprint without replacing that value.
@@ -43,8 +43,8 @@ Python import path:
 
 .. code-block:: text
 
-   Install name: pylib-package-name
-   Import path:  pylib.package_name
+   Install name: lazypye-package-name
+   Import path:  lazypye.package_name
 
 Always copy both values from the relevant package guide rather than deriving one
 from the other.

@@ -1,7 +1,7 @@
 Contributing
 ============
 
-Contributions should preserve PyLib's standard-library-first philosophy, remain
+Contributions should preserve LazyPye's standard-library-first philosophy, remain
 easy to discover, and include complete user-facing documentation.
 
 Before you begin
@@ -10,7 +10,7 @@ Before you begin
 * Confirm the feature does not add an unnecessary third-party runtime dependency.
 * Choose the existing package domain that best owns the feature.
 * Create a new distribution only when real code exists for a separate domain.
-* Keep imports beneath the shared `pylib` namespace.
+* Keep imports beneath the shared `lazypye` namespace.
 * Discuss breaking public API changes before implementation.
 
 Feature implementation workflow
@@ -23,7 +23,7 @@ Place the implementation beneath the matching distribution:
 
 .. code-block:: text
 
-   packages/PACKAGE_DIRECTORY/src/pylib/PACKAGE_NAME/MODULE_NAME.py
+   packages/PACKAGE_DIRECTORY/src/lazypye/PACKAGE_NAME/MODULE_NAME.py
 
 Use lowercase `snake_case` module names and descriptive public names.
 

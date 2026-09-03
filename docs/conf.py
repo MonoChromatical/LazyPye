@@ -4,7 +4,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "packages" / "data-structures" / "src"))
 
-project = "PyLib"
+project = "LazyPye"
 author = "MechtrixPrime"
 release = "0.1.0"
 
@@ -15,7 +15,7 @@ extensions = [
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "furo"
-html_title = "PyLib"
+html_title = "LazyPye"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_theme_options = {

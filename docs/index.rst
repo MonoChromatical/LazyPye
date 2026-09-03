@@ -1,15 +1,15 @@
-Welcome to PyLib
-================
+Welcome to LazyPye
+==================
 
 A universal, growing collection of reusable Python utilities that fills gaps in
 the standard library without introducing third-party runtime dependencies.
 
-PyLib is a monorepo of independently installable packages, so users install only
+LazyPye is a monorepo of independently installable packages, so users install only
 the domain they need.
 
 .. important::
 
-   PyLib is under active development. APIs may change as the library grows.
+   LazyPye is under active development. APIs may change as the library grows.
 
 Get started
 -----------
@@ -18,17 +18,17 @@ Choose the domain containing the utility you need from :doc:`packages/index`.
 Each package guide provides its exact installation command, imports, and usage
 examples.
 
-PyLib packages follow this reusable Git installation blueprint:
+LazyPye packages follow this reusable Git installation blueprint:
 
 .. code-block:: console
 
-   py -m pip install "git+https://github.com/MonoChromatical/Pylib.git#subdirectory=packages/PACKAGE_DIRECTORY"
+   py -m pip install "git+https://github.com/MonoChromatical/LazyPye.git#subdirectory=packages/PACKAGE_DIRECTORY"
 
 Replace `PACKAGE_DIRECTORY` with the repository directory shown in the selected
 package guide. See :doc:`getting-started` for the complete installation process.
 
-Explore PyLib
--------------
+Explore LazyPye
+---------------
 
 :doc:`getting-started`
    Installation requirements and the reusable package-installation blueprint.
@@ -42,8 +42,8 @@ Explore PyLib
 :doc:`contributing`
    Coding standards and the complete feature contribution workflow.
 
-Why PyLib?
-----------
+Why LazyPye?
+------------
 
 * **Standard-library first:** avoid unnecessary runtime dependencies.
 * **Reusable:** share focused utilities across many projects.

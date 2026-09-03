@@ -1,7 +1,7 @@
 Writing Sphinx documentation
 ============================
 
-This guide explains how contributors should document new PyLib packages,
+This guide explains how contributors should document new LazyPye packages,
 modules, classes, methods, and functions.
 
 Documentation structure
@@ -29,7 +29,7 @@ A complete feature normally updates both.
 Step 1: document the Python code
 --------------------------------
 
-Add docstrings to every public class, method, and function. PyLib supports
+Add docstrings to every public class, method, and function. LazyPye supports
 Google-style sections through Sphinx's Napoleon extension:
 
 .. code-block:: python
@@ -82,7 +82,7 @@ Inline code uses two backticks:
 
 .. code-block:: rst
 
-   Import from `pylib.data_structures`.
+   Import from `lazypye.data_structures`.
 
 Code directives require a blank line and an indented block:
 
@@ -90,7 +90,7 @@ Code directives require a blank line and an indented block:
 
    .. code-block:: python
 
-      from pylib.example import Example
+      from lazypye.example import Example
 
 Link to another documentation page with `:doc:`:
 
@@ -141,7 +141,7 @@ Add the module to its package page under `docs/api`:
    New feature
    -----------
 
-   .. automodule:: pylib.package_name.module_name
+   .. automodule:: lazypye.package_name.module_name
       :members:
 
 Sphinx imports the module and turns public signatures and docstrings into a

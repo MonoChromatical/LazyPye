@@ -2,7 +2,7 @@ Packages
 ========
 
 Each domain is an independently installable distribution under the shared
-`pylib` import namespace.
+`lazypye` import namespace.
 
 
 .. Add each new package guide to the toctree below.

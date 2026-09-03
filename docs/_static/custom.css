@@ -1,5 +1,5 @@
 :root {
-  --pylib-radius: 0.55rem;
+  --lazypye-radius: 0.55rem;
 }
 
 .content {
@@ -45,7 +45,7 @@
 .literal-block-wrapper,
 .admonition,
 table.docutils {
-  border-radius: var(--pylib-radius);
+  border-radius: var(--lazypye-radius);
 }
 
 .highlight {

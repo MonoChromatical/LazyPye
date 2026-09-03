@@ -1,7 +1,7 @@
 Project philosophy
 ==================
 
-PyLib is guided by one goal: provide useful, reusable Python utilities without
+LazyPye is guided by one goal: provide useful, reusable Python utilities without
 making projects depend on unnecessary third-party runtime packages.
 
 Core principles
