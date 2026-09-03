@@ -34,7 +34,6 @@ class DoublyLinkedList(Generic[T]):
 
     @property
     def is_empty(self):
-        return self._head is None
         return self.__head is None
 
     def add_data(self, data):
