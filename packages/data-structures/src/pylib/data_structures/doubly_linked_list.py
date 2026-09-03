@@ -60,16 +60,27 @@ class DoublyLinkedList(Generic[T]):
 
         self.__size += 1
 
-        new_node.prev = self._tail
-        self._tail.next = new_node
-        self._tail = new_node
+    def prepend(self, data: T) -> None:
+        """Prepend data to the beginning of the list.
 
-    def add_data_first(self, data):
+        Args:
+            data: Value to store in the new node.
+        """
+
         new_node = _Node(data)
 
         if self.is_empty():
             self._head = new_node
             return
+        if self.is_empty:
+            self.__head = new_node
+            self.__tail = new_node
+        else:
+            new_node.next = self.__head
+            self.__head.prev = new_node
+            self.__head = new_node
+
+        self.__size += 1
 
         new_node.next = self._head
         self._head.prev = new_node
