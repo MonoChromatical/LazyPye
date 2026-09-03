@@ -137,53 +137,55 @@ class DoublyLinkedList(Generic[T]):
         self.__size -= 1
         return removed.data
 
-        new_node.next = self._head
-        self._head.prev = new_node
-        self._head = new_node
-
+    # TODO: Update to new DLL format OR Test to see if it still works
     def delete(self, key):
-        temp = self._head
+        """Delete the first player with the specified key."""
+        current = self.__head
 
-        while temp:
-            if temp.data == key:
-                if temp.prev:
-                    temp.prev.next = temp.next
-                else:
-                    self._head = temp.next
+        while current is not None:
+            if current.key == key:
+                if current == self.__head:
+                    self.delete_head()
+                    return
 
-                if temp.next:
-                    temp.next.prev = temp.prev
+                if current == self.__tail:
+                    self.delete_tail()
+                    return
 
-                print(f"Deleted data node with the value {key}")
+                current.prev.next = current.next
+                current.next.prev= current.prev
                 return
 
-            temp = temp.next
+    # TODO: Update to new DLL format OR Test to see if it still works
+    def display(self, forward=True):
+        """Displays all players in the list.
+    Args:
+        forward:
+            - If True, display from head to tail.
+            - If False, display from tail to head.
+        """
+        if self.is_empty:
+            print("Player list is empty")
+            return
 
-        print(f"Data Node with key {key} not found")
+        if forward:
+            current = self.__head
 
+            while current is not None:
+                print(current)
+                current = current.next
+        else:
+            current = self.__tail
+
+            while current is not None:
+                print(current)
+                current = current.prev
+
+    # TODO: Update to new DLL format OR Test to see if it still works
     def search(self, key):
-        temp = self._head
+        temp = self.__head
         while temp:
             if temp.data == key:
                 return True
             temp = temp.next
         return False
-
-    def display_forward(self):
-        elements = []
-        temp = self._head
-
-        while temp:
-            elements.append(temp.data)
-            temp = temp.next
-        return elements
-
-    def display_backward(self):
-        elements = []
-        temp = self._tail
-
-        while temp:
-            elements.append(temp.data)
-            temp = temp.prev
-
-        return elements
