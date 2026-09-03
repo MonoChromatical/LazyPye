@@ -22,8 +22,11 @@ class DoublyLinkedList(Generic[T]):
     mutable node objects.
     """
     def __init__(self):
-        self._head = None
-        self._tail = None
+        """Create an empty doubly linked list."""
+
+        self.__head = None
+        self.__tail = None
+        self.__size = 0
 
     def is_empty(self):
         return self._head is None
