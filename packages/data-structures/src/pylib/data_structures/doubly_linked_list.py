@@ -82,6 +82,34 @@ class DoublyLinkedList(Generic[T]):
 
         self.__size += 1
 
+    def delete_head(self):
+        """Remove and return the first value.
+
+        Returns:
+            The data previously stored at the beginning of the list.
+
+        Raises:
+            IndexError: If the list is empty.
+        """
+
+        if self.is_empty:
+            raise IndexError("delete from empty linked list")
+
+        if self.__head == self.__tail:
+            removed = self.__head
+            self.__head = None
+            self.__tail = None
+            self.__size -= 1
+
+            return removed.data
+
+        removed = self.__head
+        self.__head = removed.next
+        self.__head.prev = None
+        self.__size -= 1
+
+        return removed.data
+
         new_node.next = self._head
         self._head.prev = new_node
         self._head = new_node
