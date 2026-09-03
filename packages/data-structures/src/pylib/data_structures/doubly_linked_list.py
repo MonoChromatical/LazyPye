@@ -39,17 +39,12 @@ class DoublyLinkedList(Generic[T]):
     def append(self, data: T) -> None:
         """Append data to the end of the list.
 
-    def add_data(self, data):
         Args:
             data: Value to store in the new next node.
         """
 
         new_node = _Node(data)
 
-        if self.is_empty():
-            self._head = new_node
-            self._tail = new_node
-            return
         if self.is_empty:
             self.__head = new_node
             self.__tail = new_node
@@ -69,9 +64,6 @@ class DoublyLinkedList(Generic[T]):
 
         new_node = _Node(data)
 
-        if self.is_empty():
-            self._head = new_node
-            return
         if self.is_empty:
             self.__head = new_node
             self.__tail = new_node
