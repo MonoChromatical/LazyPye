@@ -1,8 +1,17 @@
-class _Node:
-    def __init__(self, data):
-        self.data = data
-        self.next: _Node | None = None
-        self.prev: _Node | None = None
+from dataclasses import dataclass
+from typing import Generic, TypeVar
+
+__all__ = ["DoublyLinkedList"]
+
+T = TypeVar("T")
+
+@dataclass(slots=True)
+class _Node(Generic[T]):
+    """Store the internal state for doubly linked-list node."""
+
+    data: T
+    next: "_Node[T] | None" = None
+    prev: "_Node[T] | None" = None
 
 class DoublyLinkedList:
     def __init__(self):
