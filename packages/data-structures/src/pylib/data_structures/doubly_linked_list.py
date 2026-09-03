@@ -13,7 +13,14 @@ class _Node(Generic[T]):
     next: "_Node[T] | None" = None
     prev: "_Node[T] | None" = None
 
-class DoublyLinkedList:
+
+class DoublyLinkedList(Generic[T]):
+    """Stores values in nodes connected bidirectional.
+
+    Nodes and list pointers are private implementation details. Public methods
+    accept zero-based positions and return stored data rather than exposing
+    mutable node objects.
+    """
     def __init__(self):
         self._head = None
         self._tail = None
