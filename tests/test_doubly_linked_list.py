@@ -125,3 +125,29 @@ def test_insert_middle_rejects_non_integer_positions(position):
     with pytest.raises(TypeError):
         linked.insert_middle(position, 99)
 
+
+@pytest.mark.parametrize(
+    ("position", "expected"),
+    [(0, "first"), (1, "middle"), (2, "last")],
+)
+def test_display_node_returns_data(position, expected):
+    linked = make_list("first", "middle", "last")
+
+    assert linked.display_node(position) == expected
+
+
+@pytest.mark.parametrize("position", [-1, 3, 100])
+def test_display_node_rejects_out_of_range_positions(position):
+    linked = make_list(10, 20, 30)
+
+    with pytest.raises(IndexError):
+        linked.display_node(position)
+
+
+@pytest.mark.parametrize("position", [1.5, "1", None, True])
+def test_display_node_rejects_non_integer_positions(position):
+    linked = make_list(10, 20, 30)
+
+    with pytest.raises(TypeError):
+        linked.display_node(position)
+
