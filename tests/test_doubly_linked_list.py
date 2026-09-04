@@ -31,3 +31,13 @@ def test_new_list_is_empty(capsys):
     assert displayed_values(linked, capsys) == "Doubly linked list is empty\n"
 
 
+def test_append_adds_values_to_the_end():
+    linked = make_list(10, 20, 30)
+
+    assert len(linked) == 3
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (10, 20, 30)
+
+
