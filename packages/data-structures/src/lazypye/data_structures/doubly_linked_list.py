@@ -231,7 +231,6 @@ class DoublyLinkedList(Generic[T]):
 
         return self._node_at(position).data
 
-
     def _node_at(self, position: int) -> _Node[T]:
         """Return the private node at position."""
 

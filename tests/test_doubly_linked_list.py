@@ -15,6 +15,7 @@ def displayed_values(linked, capsys, forward=True):
     linked.display(forward)
     return capsys.readouterr().out
 
+
 def test_doubly_linked_list_is_the_only_public_class():
     assert linked_list_module.__all__ == ["DoublyLinkedList"]
     assert not hasattr(linked_list_module, "Node")
@@ -35,10 +36,11 @@ def test_append_adds_values_to_the_end():
     linked = make_list(10, 20, 30)
 
     assert len(linked) == 3
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (10, 20, 30)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (
+        10,
+        20,
+        30,
+    )
 
 
 def test_prepend_adds_values_to_the_beginning():
@@ -49,10 +51,11 @@ def test_prepend_adds_values_to_the_beginning():
     linked.prepend(10)
 
     assert len(linked) == 3
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (10, 20, 30)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (
+        10,
+        20,
+        30,
+    )
 
 
 def test_append_accepts_different_value_types():
@@ -95,10 +98,7 @@ def test_insert_middle_inserts_before_position(position, data, expected):
     linked.insert_middle(position, data)
 
     assert len(linked) == len(expected)
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == expected
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == expected
 
 
 @pytest.mark.parametrize("values", [(), (10,)])
@@ -215,10 +215,7 @@ def test_removes_head():
 
     assert linked.remove(10) == 10
     assert len(linked) == 2
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (20, 30)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (20, 30)
 
 
 def test_removes_tail():
@@ -226,10 +223,7 @@ def test_removes_tail():
 
     assert linked.remove(30) == 30
     assert len(linked) == 2
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (10, 20)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (10, 20)
 
 
 def test_removes_middle():
@@ -237,10 +231,7 @@ def test_removes_middle():
 
     assert linked.remove(20) == 20
     assert len(linked) == 2
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (10, 30)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (10, 30)
 
 
 def test_remove_removes_first_matching_value():
@@ -248,10 +239,11 @@ def test_remove_removes_first_matching_value():
 
     assert linked.remove(10) == 10
     assert len(linked) == 3
-    assert tuple(
-        linked.display_node(index)
-        for index in range(len(linked))
-    ) == (20, 10, 30)
+    assert tuple(linked.display_node(index) for index in range(len(linked))) == (
+        20,
+        10,
+        30,
+    )
 
 
 def test_remove_returns_none_when_value_not_found():
@@ -295,4 +287,3 @@ def test_combined_operations_preserve_order_and_size(capsys):
     assert len(linked) == 3
     assert displayed_values(linked, capsys) == "30\n40\n50\n"
     assert displayed_values(linked, capsys, forward=False) == "50\n40\n30\n"
-
