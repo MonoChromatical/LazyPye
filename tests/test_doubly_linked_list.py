@@ -22,3 +22,12 @@ def test_doubly_linked_list_is_the_only_public_class():
     assert not hasattr(DoublyLinkedList(), "head")
     assert not hasattr(DoublyLinkedList(), "tail")
 
+
+def test_new_list_is_empty(capsys):
+    linked = DoublyLinkedList()
+
+    assert len(linked) == 0
+    assert linked.is_empty is True
+    assert displayed_values(linked, capsys) == "Doubly linked list is empty\n"
+
+
