@@ -41,3 +41,16 @@ def test_append_adds_values_to_the_end():
     ) == (10, 20, 30)
 
 
+def test_prepend_adds_values_to_the_beginning():
+    linked = DoublyLinkedList()
+
+    linked.prepend(30)
+    linked.prepend(20)
+    linked.prepend(10)
+
+    assert len(linked) == 3
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (10, 20, 30)
+
