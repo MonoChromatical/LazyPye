@@ -239,3 +239,34 @@ class DoublyLinkedList(Generic[T]):
 
         return self._node_at(position).data
 
+
+    def _node_at(self, position: int) -> _Node[T]:
+        """Return the private node at position."""
+
+        self._validate_position(position)
+
+        current = self.__head
+        for _ in range(position):
+            current = current.next
+
+        return current
+
+    def _validate_position(self, position: int) -> None:
+        """Validate a position that may address any node."""
+
+        if not isinstance(position, int) or isinstance(position, bool):
+            raise TypeError("position must be an integer")
+
+        if position < 0 or position >= self.__size:
+            raise IndexError("linked list position out of range")
+
+    def _validate_middle_insertion_position(self, position: int) -> None:
+        """Validate a position strictly after the start and before the end."""
+
+        if not isinstance(position, int) or isinstance(position, bool):
+            raise TypeError("position must be an integer")
+
+        if position <= 0 or position >= self.__size:
+            raise IndexError(
+                "middle insertion position must be between the first and last nodes"
+            )
