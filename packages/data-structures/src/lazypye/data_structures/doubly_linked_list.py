@@ -35,7 +35,7 @@ class DoublyLinkedList(Generic[T]):
         return self.__size
 
     @property
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return self.__head is None
 
     def append(self, data: T) -> None:
