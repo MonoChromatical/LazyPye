@@ -62,3 +62,30 @@ def test_append_accepts_different_value_types():
     assert linked.display_node(1) == "text"
     assert linked.display_node(2) == {"value": 1}
 
+
+def test_append_and_prepend_preserve_empty_state():
+    linked = DoublyLinkedList()
+
+    assert linked.is_empty is True
+
+    linked.append(10)
+    assert linked.is_empty is False
+
+    linked.delete_head()
+    assert linked.is_empty is True
+
+    linked.prepend(20)
+    assert linked.is_empty is False
+
+    linked.delete_tail()
+    assert linked.is_empty is True
+
+
+@pytest.mark.parametrize(
+    ("position", "data", "expected"),
+    [
+        (1, 20, (10, 20, 30)),
+        (2, 30, (10, 20, 30, 40)),
+    ],
+)
+
