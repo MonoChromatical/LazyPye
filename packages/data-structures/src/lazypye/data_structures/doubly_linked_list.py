@@ -156,26 +156,39 @@ class DoublyLinkedList(Generic[T]):
         self.__size -= 1
         return removed.data
 
-    # TODO: Update to new DLL format OR Test to see if it still works
-    def delete(self, key):
-        """Delete the first player with the specified key."""
+    def remove(self, data: T) -> T | None:
+        """Remove and return the first matching value.
+
+        Args:
+            data: Value to search for and remove.
+
+
+        Returns:
+            The removed value, or None if the value was not found.
+
+        Raises:
+            IndexError: If the list is empty.
+        """
         current = self.__head
 
         while current is not None:
-            if current.key == key:
+            if current.data == data:
                 if current == self.__head:
-                    self.delete_head()
-                    return
+                    return self.delete_head()
 
                 if current == self.__tail:
-                    self.delete_tail()
-                    return
+                    return self.delete_tail()
+
+                removed = current.data
 
                 current.prev.next = current.next
-                current.next.prev= current.prev
-                return
+                current.next.prev = current.prev
+                self.__size -= 1
+                return removed
 
-    # TODO: Update to new DLL format OR Test to see if it still works
+            current = current.next
+        return None
+
     def display(self, forward=True):
         """Displays all players in the list.
     Args:
