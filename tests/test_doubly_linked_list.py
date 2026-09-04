@@ -88,4 +88,40 @@ def test_append_and_prepend_preserve_empty_state():
         (2, 30, (10, 20, 30, 40)),
     ],
 )
+def test_insert_middle_inserts_before_position(position, data, expected):
+    starting_values = (10, 30) if position == 1 else (10, 20, 40)
+    linked = make_list(*starting_values)
+
+    linked.insert_middle(position, data)
+
+    assert len(linked) == len(expected)
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == expected
+
+
+@pytest.mark.parametrize("values", [(), (10,)])
+@pytest.mark.parametrize("position", [-1, 0, 1])
+def test_insert_middle_rejects_lists_without_a_middle(values, position):
+    linked = make_list(*values)
+
+    with pytest.raises(IndexError):
+        linked.insert_middle(position, 99)
+
+
+@pytest.mark.parametrize("position", [0, 3, 4, -1])
+def test_insert_middle_rejects_boundaries_and_invalid_positions(position):
+    linked = make_list(10, 20, 30)
+
+    with pytest.raises(IndexError):
+        linked.insert_middle(position, 99)
+
+
+@pytest.mark.parametrize("position", [1.5, "1", None, True])
+def test_insert_middle_rejects_non_integer_positions(position):
+    linked = make_list(10, 20, 30)
+
+    with pytest.raises(TypeError):
+        linked.insert_middle(position, 99)
 
