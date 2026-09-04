@@ -209,3 +209,55 @@ def test_delete_tail_rejects_empty_list():
     with pytest.raises(IndexError, match="empty linked list"):
         DoublyLinkedList().delete_tail()
 
+
+def test_removes_head():
+    linked = make_list(10, 20, 30)
+
+    assert linked.remove(10) == 10
+    assert len(linked) == 2
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (20, 30)
+
+
+def test_removes_tail():
+    linked = make_list(10, 20, 30)
+
+    assert linked.remove(30) == 30
+    assert len(linked) == 2
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (10, 20)
+
+
+def test_removes_middle():
+    linked = make_list(10, 20, 30)
+
+    assert linked.remove(20) == 20
+    assert len(linked) == 2
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (10, 30)
+
+
+def test_remove_removes_first_matching_value():
+    linked = make_list(10, 20, 10, 30)
+
+    assert linked.remove(10) == 10
+    assert len(linked) == 3
+    assert tuple(
+        linked.display_node(index)
+        for index in range(len(linked))
+    ) == (20, 10, 30)
+
+
+def test_remove_returns_none_when_value_not_found():
+    linked = make_list(10, 20, 30)
+
+    assert linked.remove(99) is None
+    assert len(linked) == 3
+
+
