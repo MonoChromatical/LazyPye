@@ -1,6 +1,5 @@
 import lazypye.data_structures.doubly_linked_list as linked_list_module
 import pytest
-
 from lazypye.data_structures import DoublyLinkedList
 
 
