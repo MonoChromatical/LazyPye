@@ -221,3 +221,21 @@ class DoublyLinkedList(Generic[T]):
                 return True
             temp = temp.next
         return False
+    def display_node(self, position: int) -> T:
+        """Return the data stored at a zero-based position.
+
+        Returning data instead of a node keeps list connections private.
+
+        Args:
+            position: Zero-based position to retrieve.
+
+        Returns:
+            The data stored at position.
+
+        Raises:
+            TypeError: If position is not an integer.
+            IndexError: If position lies outside the list.
+        """
+
+        return self._node_at(position).data
+
