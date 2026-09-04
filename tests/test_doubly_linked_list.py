@@ -54,3 +54,11 @@ def test_prepend_adds_values_to_the_beginning():
         for index in range(len(linked))
     ) == (10, 20, 30)
 
+
+def test_append_accepts_different_value_types():
+    linked = make_list(None, "text", {"value": 1})
+
+    assert linked.display_node(0) is None
+    assert linked.display_node(1) == "text"
+    assert linked.display_node(2) == {"value": 1}
+
