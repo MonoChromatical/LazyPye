@@ -5,6 +5,7 @@ __all__ = ["DoublyLinkedList"]
 
 T = TypeVar("T")
 
+
 @dataclass(slots=True)
 class _Node(Generic[T]):
     """Store the internal state for doubly linked-list node."""
@@ -21,6 +22,7 @@ class DoublyLinkedList(Generic[T]):
     accept zero-based positions and return stored data rather than exposing
     mutable node objects.
     """
+
     def __init__(self):
         """Create an empty doubly linked list."""
 
