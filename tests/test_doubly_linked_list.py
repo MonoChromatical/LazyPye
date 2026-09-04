@@ -151,3 +151,17 @@ def test_display_node_rejects_non_integer_positions(position):
     with pytest.raises(TypeError):
         linked.display_node(position)
 
+
+def test_display_forward(capsys):
+    linked = make_list(10, 20, 30)
+
+    assert displayed_values(linked, capsys) == "10\n20\n30\n"
+
+
+def test_display_backward(capsys):
+    linked = make_list(10, 20, 30)
+
+    assert displayed_values(linked, capsys, forward=False) == "30\n20\n10\n"
+
+
+
