@@ -190,27 +190,27 @@ class DoublyLinkedList(Generic[T]):
         return None
 
     def display(self, forward=True):
-        """Displays all players in the list.
-    Args:
-        forward:
-            - If True, display from head to tail.
-            - If False, display from tail to head.
+        """Prints all stored values in the list.
+        Args:
+            forward:
+                - If True, display from head to tail.
+                - If False, display from tail to head.
         """
         if self.is_empty:
-            print("Player list is empty")
+            print("Doubly linked list is empty")
             return
 
         if forward:
             current = self.__head
 
             while current is not None:
-                print(current)
+                print(current.data)
                 current = current.next
         else:
             current = self.__tail
 
             while current is not None:
-                print(current)
+                print(current.data)
                 current = current.prev
 
     # TODO: Update to new DLL format OR Test to see if it still works
