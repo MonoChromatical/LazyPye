@@ -213,14 +213,6 @@ class DoublyLinkedList(Generic[T]):
                 print(current.data)
                 current = current.prev
 
-    # TODO: Update to new DLL format OR Test to see if it still works
-    def search(self, key):
-        temp = self.__head
-        while temp:
-            if temp.data == key:
-                return True
-            temp = temp.next
-        return False
     def display_node(self, position: int) -> T:
         """Return the data stored at a zero-based position.
 
