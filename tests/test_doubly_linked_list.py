@@ -186,3 +186,26 @@ def test_delete_head_rejects_empty_list():
     with pytest.raises(IndexError, match="empty linked list"):
         DoublyLinkedList().delete_head()
 
+
+def test_delete_tail_returns_data_and_preserves_integrity(capsys):
+    linked = make_list(10, 20, 30)
+
+    assert linked.delete_tail() == 30
+    assert len(linked) == 2
+    assert displayed_values(linked, capsys) == "10\n20\n"
+    assert displayed_values(linked, capsys, forward=False) == "20\n10\n"
+
+
+def test_delete_tail_clears_single_node_list(capsys):
+    linked = make_list(10)
+
+    assert linked.delete_tail() == 10
+    assert len(linked) == 0
+    assert linked.is_empty is True
+    assert displayed_values(linked, capsys) == "Doubly linked list is empty\n"
+
+
+def test_delete_tail_rejects_empty_list():
+    with pytest.raises(IndexError, match="empty linked list"):
+        DoublyLinkedList().delete_tail()
+
