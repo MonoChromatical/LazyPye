@@ -76,6 +76,31 @@ class DoublyLinkedList(Generic[T]):
 
         self.__size += 1
 
+    def insert_middle(self, position: int, data: T) -> None:
+        """Insert data before an existing middle position.
+
+        Args:
+            position: Zero-based insertion position. It must be greater than
+                zero and less than the current list length.
+            data: Value to store in the inserted node.
+
+        Raises:
+            TypeError: If position is not an integer.
+            IndexError: If position is zero, is an append position, or lies
+                outside the list.
+        """
+        self._validate_middle_insertion_position(position)
+
+        current = self._node_at(position)
+        previous = current.prev
+
+        new_node = _Node(data, next=current, prev=previous)
+
+        previous.next = new_node
+        current.prev = new_node
+
+        self.__size += 1
+
     def delete_head(self):
         """Remove and return the first value.
 
