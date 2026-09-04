@@ -261,3 +261,38 @@ def test_remove_returns_none_when_value_not_found():
     assert len(linked) == 3
 
 
+def test_tail_remains_valid_after_delete_and_append(capsys):
+    linked = make_list(10, 20)
+
+    linked.delete_tail()
+    linked.append(30)
+
+    assert len(linked) == 2
+    assert displayed_values(linked, capsys) == "10\n30\n"
+    assert displayed_values(linked, capsys, forward=False) == "30\n10\n"
+
+
+def test_head_remains_valid_after_delete_and_prepend(capsys):
+    linked = make_list(20, 30)
+
+    linked.delete_head()
+    linked.prepend(10)
+
+    assert len(linked) == 2
+    assert displayed_values(linked, capsys) == "10\n30\n"
+    assert displayed_values(linked, capsys, forward=False) == "30\n10\n"
+
+
+def test_combined_operations_preserve_order_and_size(capsys):
+    linked = make_list(10, 40)
+
+    linked.insert_middle(1, 20)
+    linked.insert_middle(2, 30)
+    linked.remove(20)
+    linked.delete_head()
+    linked.append(50)
+
+    assert len(linked) == 3
+    assert displayed_values(linked, capsys) == "30\n40\n50\n"
+    assert displayed_values(linked, capsys, forward=False) == "50\n40\n30\n"
+
