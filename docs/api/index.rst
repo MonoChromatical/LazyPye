@@ -10,3 +10,4 @@ These pages are generated from public modules and their docstrings.
    :maxdepth: 2
 
    data-structures
+   doubly-linked-list
