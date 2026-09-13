@@ -191,6 +191,7 @@ class DoublyLinkedList(Generic[T]):
 
     def display(self, forward=True):
         """Prints all stored values in the list.
+
         Args:
             forward:
                 - If True, display from head to tail.
