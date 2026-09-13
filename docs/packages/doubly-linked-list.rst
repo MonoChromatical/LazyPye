@@ -95,7 +95,7 @@ Returns the number of stored values.
 .. code-block:: python
 
    linked = DoublyLinkedList[int]()
-   linked.add_data(10)
+   linked.append(10)
    print(len(linked))
 
 .. code-block:: text
@@ -103,11 +103,12 @@ Returns the number of stored values.
    1
 
 `is_empty`
-~~~~~~~~~~
+~~~~~~~~~~~~
 
 Returns `True` when the list contains no values and `False` otherwise.
 
 .. code-block:: python
+
     linked = DoublyLinkedList[int]()
     print(linked.is_empty)
 
@@ -122,8 +123,8 @@ Appends `data` to the end of the list and returns `None`.
 
 .. code-block:: python
 
-   linked.add_data(20)
-   linked.add_data(30)
+   linked.append(20)
+   linked.append(30)
 
 `prepend(data)`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,8 +134,6 @@ Prepends `data` to the beginning of the list and returns `None`.
 :param position: Integer from `1` through `len(linked) - 1`.
 :param data: Value to insert.
 :returns: `None`.
-:raises TypeError: If `position` is not an integer.
-:raises IndexError: If it is zero, an append position, or outside the list.
 
 .. code-block:: python
 
@@ -142,7 +141,7 @@ Prepends `data` to the beginning of the list and returns `None`.
    linked.prepend(10)
 
 `insert_middle(position, data)`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Inserts `data` before the existing value at a middle `position`.
 
@@ -197,10 +196,14 @@ An empty list prints `Doubly linked list is empty`.
 
 .. code-block:: text
 
-   10 → 20 → 30 → None
-   30 → 20 → 10 → None
+   10
+   20
+   30
+   30
+   20
+   10
 
-`delete_first()`
+`delete_head()`
 ~~~~~~~~~~~~~~~~~~
 
 Removes and returns the first value.
@@ -223,16 +226,15 @@ Removes and returns the first value.
 Searches for the first matching value, removes it, and returns the removed data.
 If the value is not found, `None` is returned.
 
-:param data: Value to search for and remove. :returns: The removed data, or `None` if the value was not found.
-:raises TypeError: If `position` is not an integer.
-:raises IndexError: If it is a boundary, outside the list, or no middle exists.
+:param data: Value to search for and remove.
+:returns: The removed data, or `None` if the value was not found.
 
 .. code-block:: python
 
    linked = DoublyLinkedList[int]()
-   linked.add_data(10)
-   linked.add_data(20)
-   linked.add_data(30)
+   linked.append(10)
+   linked.append(20)
+   linked.append(30)
    removed = linked.remove(20)
    print(removed)
 
@@ -274,4 +276,4 @@ Edge cases
 API reference
 -------------
 
-See :doc:`../api/data-structures` for generated signatures and docstrings.
+See :doc:`../api/doubly-linked-list` for generated signatures and docstrings.
