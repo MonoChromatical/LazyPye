@@ -12,3 +12,4 @@ Each domain is an independently installable distribution under the shared
    :maxdepth: 2
 
    data-structures
+   doubly-linked-list
