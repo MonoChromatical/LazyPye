@@ -2,10 +2,18 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT / "packages" / "data-structures" / "src"))
+PACKAGES_ROOT = PROJECT_ROOT / "packages"
+
+# Add every package's `src` directory to Sphinx's import path.
+for pyproject in PACKAGES_ROOT.rglob("pyproject.toml"):
+    src_dir = pyproject.parent / "src"
+
+    if src_dir.is_dir():
+        sys.path.insert(0, str(src_dir))
+
 
 project = "LazyPye"
-author = "MechtrixPrime"
+author = ""
 release = "0.1.0"
 
 extensions = [

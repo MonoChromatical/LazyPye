@@ -6,10 +6,10 @@ Package information
 
 .. code-block:: text
 
-   Distribution:         lazypye-data-structures
-   Repository directory: packages/data-structures
-   Module:               lazypye.data_structures.singly_linked_list
-   Public import:         lazypye.data_structures.SinglyLinkedList
+   Distribution:         lazypye-data-structures-linked-lists
+   Repository directory: packages/data-structures/linked-lists
+   Module:               lazypye.data_structures.linked_lists.singly_linked_list
+   Public import:         lazypye.data_structures.linked_lists.SinglyLinkedList
 
 Installation
 ------------
@@ -18,7 +18,7 @@ Install only the data-structures distribution directly from the repository:
 
 .. code-block:: console
 
-   py -m pip install "git+https://github.com/MonoChromatical/LazyPye.git#subdirectory=packages/data-structures"
+   py -m pip install "git+https://github.com/MonoChromatical/LazyPye.git#subdirectory=packages/data-structures/linked_lists"
 
 For the reusable installation blueprint and the distinction between distribution
 names and import paths, see :doc:`../getting-started`.
@@ -28,7 +28,7 @@ Import
 
 .. code-block:: python
 
-   from lazypye.data_structures import SinglyLinkedList
+   from lazypye.data_structures.linked_lists import SinglyLinkedList
 
 Description
 -----------
@@ -62,7 +62,7 @@ Complete example
 
 .. code-block:: python
 
-   from lazypye.data_structures import SinglyLinkedList
+   from lazypye.data_structures.linked_lists import SinglyLinkedList
 
    linked = SinglyLinkedList[int]()
    linked.add_data(10)

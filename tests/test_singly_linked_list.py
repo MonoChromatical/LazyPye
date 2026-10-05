@@ -1,6 +1,6 @@
-import lazypye.data_structures.singly_linked_list as linked_list_module
+import lazypye.data_structures.linked_lists.singly_linked_list as linked_list_module
 import pytest
-from lazypye.data_structures import SinglyLinkedList
+from lazypye.data_structures.linked_lists import SinglyLinkedList
 
 
 def make_list(*values):
