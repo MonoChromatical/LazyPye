@@ -235,4 +235,4 @@ Edge cases
 API reference
 -------------
 
-See :doc:`../api/data-structures` for generated signatures and docstrings.
+See :doc:`../api/singly-linked-list` for generated signatures and docstrings.

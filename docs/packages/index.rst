@@ -11,5 +11,5 @@ Each domain is an independently installable distribution under the shared
 .. toctree::
    :maxdepth: 2
 
-   data-structures
+   singly-linked-list
    doubly-linked-list

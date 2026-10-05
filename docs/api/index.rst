@@ -9,5 +9,5 @@ These pages are generated from public modules and their docstrings.
 .. toctree::
    :maxdepth: 2
 
-   data-structures
+   singly-linked-list
    doubly-linked-list
