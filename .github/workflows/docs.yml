@@ -28,7 +28,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-docs.txt
-          pip install ./packages/data-structures
+          
+          find packages -name pyproject.toml -print0 |
+            while IFS= read -r -d '' pyproject; do
+              pip install "./$(dirname "$pyproject")"
+            done < <(find packages -name pyproject.toml -print0)
+
       - name: Build documentation
         run: python -m sphinx -W --keep-going -b html docs docs/_build/html
       - name: Configure GitHub Pages

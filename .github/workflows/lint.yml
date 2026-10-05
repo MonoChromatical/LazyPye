@@ -33,10 +33,19 @@ jobs:
         run: ruff format --check .
 
       - name: Verify package installs
-        run: pip install ./packages/data-structures
+        shell: bash
+        run: |
+          while IFS= read -r -d '' pyproject; do
+            package_dir="$(dirname "$pyproject")"
+            echo "Installing $package_dir"
+            python -m pip install "./$package_dir"
+          done < <(find packages -name pyproject.toml -print0)
+        
 
       - name: Verify package import
-        run: python -c "from lazypye.data_structures import SinglyLinkedList"
+        run: |
+          python -c "from lazypye.data_structures.linked_lists import SinglyLinkedList"
+          python -c "from lazypye.data_structures.linked_lists import DoublyLinkedList"
 
       - name: Run tests
         run: pytest
